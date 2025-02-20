@@ -6,3 +6,4 @@ A streamlined e-commerce platform designed for quick ordering of snacks/products
 ## Project Structure
 
 ### Core Components 
+Hello World. 
