@@ -65,6 +65,7 @@ export default function Home() {
               key={productId}
               productName={product.name}
               quantity={quantity}
+              price={product.price}
               onIncrement={() => handleIncrement(productId)}
               onDecrement={() => handleDecrement(productId)}
             />

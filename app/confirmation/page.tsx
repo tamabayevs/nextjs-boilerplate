@@ -1,12 +1,12 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState, Suspense } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { products } from '../data/products';
 
-export default function Confirmation() {
-  const router = useRouter();
+function ConfirmationContent() {
   const searchParams = useSearchParams();
+  const router = useRouter();
   const [seconds, setSeconds] = useState(30);
   
   const orderItems = JSON.parse(searchParams.get('items') || '{}');
@@ -68,5 +68,17 @@ export default function Confirmation() {
         </div>
       </div>
     </div>
+  );
+}
+
+export default function Confirmation() {
+  return (
+    <Suspense fallback={
+      <div className="min-h-screen p-4 max-w-md mx-auto">
+        <div className="text-center">Loading...</div>
+      </div>
+    }>
+      <ConfirmationContent />
+    </Suspense>
   );
 } 
